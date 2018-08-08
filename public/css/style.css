@@ -1,0 +1,23 @@
+/****** BOOTSTRAP RESTYLING ******/
+.bg-dark {
+    background-color: rgba(200, 200, 200, 1) !important;
+}
+
+.text-primary {
+    color: #33ccff !important;
+}
+
+
+/****** NAVIGATIONAL STYLING ******/
+.nav-active, .nav-link:hover {
+    color: #33ccff !important;
+}
+
+.nav-item:hover, .dropdown-item:hover {
+    cursor: pointer;
+}
+
+.nav-active:hover {
+    cursor: default;
+}
+
