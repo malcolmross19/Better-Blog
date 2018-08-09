@@ -1,6 +1,6 @@
 <header>
-    <div class="container-fluid mb-5">
-        <nav class="navbar navbar-expand-md navbar-light bg-light rounded-bottom font-weight-bold">
+    <div class="container-fluid mb-3">
+        <nav class="navbar navbar-expand-md navbar-dark rounded-bottom font-weight-bold">
             {{--Branding Logo / Homepage link--}}
             <a class="navbar-brand pb-2" href="{{ route('splash') }}">
                 <img style="height: 50px;" src="{{ asset('images/logo.png') }}" alt="Logo">
@@ -45,12 +45,12 @@
                                 {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
                             </a>
 
-                            <ul class="dropdown-menu border-0 bg-light dropdown-menu-right" role="menu">
+                            <ul class="dropdown-menu border-0 dropdown-menu-right" role="menu">
                                 <li class="nav-item">
-                                    <a class="dropdown-item nav-link font-weight-bold" href="#">Profile</a>
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="#">Profile</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item nav-link font-weight-bold" href="#"
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="#"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
