@@ -30,19 +30,22 @@
                     {{--Check if user is logged in--}}
 
                     {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
-                    {{--@if (Auth::guest())--}}
+                    @if (Auth::guest())
                         <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link" href="#">Login</a>
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item ml-0 ml-md-auto">
+                            <a class="nav-link" href="/register">Register</a>
                         </li>
 
                     {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
-                    {{--@else--}}
+                    @else
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
                                 User
 
                                 {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
-                                {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu border-0 dropdown-menu-right" role="menu">
@@ -64,7 +67,7 @@
                         </li>
 
                     {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
-                    {{--@endif--}}
+                    @endif
                 </ul>
             </div>
         </nav>
