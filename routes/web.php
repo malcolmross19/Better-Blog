@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('pages.splash');
 })->name('splash');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
