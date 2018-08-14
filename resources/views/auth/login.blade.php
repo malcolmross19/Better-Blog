@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('layout.base')
+@section('title', "Login | Better Blog")
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

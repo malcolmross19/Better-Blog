@@ -29,22 +29,17 @@
                 <ul class="nav navbar-nav ml-auto">
                     {{--Check if user is logged in--}}
 
-                    {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
                     @if (Auth::guest())
                         <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link" href="/register">Register</a>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
 
-                    {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
                     @else
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
-                                User
-
-                                {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -53,20 +48,18 @@
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="#">Profile</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="#"
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
 
-                                    <form id="logout-form" action="#" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
                             </ul>
                         </li>
-
-                    {{--COMMENTED OUT UNTIL USER AUTH IS IMPLEMENTED--}}
                     @endif
                 </ul>
             </div>
