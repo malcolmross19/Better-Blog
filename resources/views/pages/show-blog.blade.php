@@ -1,7 +1,7 @@
 @extends('layout.base')
-@section('title', "About Us | Better Blog")
+@section('title', "Blogs | Better Blog")
 @section('content')
     <section class="container">
-        <h1>Test</h1>
+        <h1>Blog Title</h1>
     </section>
 @endsection

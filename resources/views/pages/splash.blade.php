@@ -7,6 +7,8 @@
                 <img class="d-none d-lg-inline-block" src="{{ asset('images/logo.png') }}" height="130" width="130" alt="Logo">
                 <h1 class=" logo-header">Better Blog</h1>
                 <p class="font-weight-bold mt-3 font-italic">Crafting an environment where free thinkers can share their thoughts and experiences.</p>
+
+                @guest
                 <form class="p-2 rounded d-none d-xl-block" method="POST" action="{{ route('login') }}" style="background-color: #c9c9c9">
                     @csrf
                     <div class="form-group text-left">
@@ -31,14 +33,16 @@
                     </div>
                     <button class="btn btn-success">Login</button>
                 </form>
+                @endguest
+
             </article>
-            <article class="w-75 position-relative mt-3 mx-auto">
+            <article class="w-75 mt-3 mx-auto position-relative">
                 <img class="m-0 w-100 rounded" src="{{ asset('images/thinking2.jpg') }}" alt="Thinking Image">
                 <button type="button" class="btn btn-danger position-absolute" style="top:70px; right: 30px;">Share Your Stories</button>
                 <p class="slogan position-absolute font-weight-bold text-dark small" style="top: 10px; left: 10%;">"Supplying the canvas to paint your life!"</p>
             </article>
         </section>
-        <section class="mb-5 position-relative" style="margin-top: 150px;">
+        <section class="mb-5" style="margin-top: 150px;">
             <h2 class="mb-5 text-center">Popular Blogs</h2>
             <article class="bg-dark p-3 rounded mb-4">
                 <div class="row font-weight-bold">

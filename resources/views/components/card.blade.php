@@ -1,5 +1,5 @@
 {{--Card Component--}}
-<div class="card border-0">
+<div class="card border-0 shadowed">
 
     {{--Card Header--}}
     <div class="card-header bg-primary card-component-header">

@@ -18,13 +18,13 @@
                         <a href="{{ route('splash') }}" class="nav-link {{ Route::is('splash')? 'active': '' }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Blogs</a>
+                        <a href="{{ route('blogs') }}" class="nav-link {{ Route::is('blogs')? 'active': '' }}">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">About</a>
+                        <a href="{{ route('about') }}" class="nav-link {{ Route::is('about')? 'active': '' }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Contact</a>
+                        <a href="{{ route('contact') }}" class="nav-link {{ Route::is('contact')? 'active': '' }}">Contact</a>
                     </li>
                 </ul>
 

@@ -28,7 +28,7 @@
         {{--Include the header file--}}
         @include('layout.header')
 
-        <main>
+        <main class="position-relative">
             {{--Yields content to be replaced when extending from this file--}}
             @yield('content')
         </main>

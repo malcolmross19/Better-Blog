@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('pages.splash');
 })->name('splash');
 
+Route::get('contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::get('about', function () {
+    return view('pages.about');
+})->name('about');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* Routes for blogs CRUD */
+Route::prefix('blogs')->group(function () {
+    Route::get('/', 'BlogsController@index')->name('blogs');
+
+    Route::get('/create', 'BlogsController@create')->name('create-blog');
+    Route::post('/create', 'BlogsController@store')->name('store-blog');
+    Route::get('/{id}', 'BlogsController@show')->name('show-blog');
+    Route::get('/{id}/edit', 'BlogsController@edit')->name('edit-blog');
+    Route::patch('/{id}', 'BlogsController@update')->name('update-blog');
+    Route::delete('/{id}', 'BlogsController@delete')->name('delete-blog');
+});
