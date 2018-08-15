@@ -7,14 +7,27 @@
                 <img class="d-none d-lg-inline-block" src="{{ asset('images/logo.png') }}" height="130" width="130" alt="Logo">
                 <h1 class=" logo-header">Better Blog</h1>
                 <p class="font-weight-bold mt-3 font-italic">Crafting an environment where free thinkers can share their thoughts and experiences.</p>
-                <form class="p-2 rounded d-none d-xl-block" method="post" action="" style="background-color: #c9c9c9">
+                <form class="p-2 rounded d-none d-xl-block" method="POST" action="{{ route('login') }}" style="background-color: #c9c9c9">
+                    @csrf
                     <div class="form-group text-left">
                         <label class="font-weight-bold" for="email">Email</label>
-                        <input class="form-control" type="email" name="email" id="email" placeholder="doe.jane@gmail.com">
+                        <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" placeholder="doe.jane@gmail.com" value="{{ old('email') }}">
+
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group text-left">
                         <label class="font-weight-bold" for="password">Password</label>
-                        <input class="form-control" type="password" name="password" id="password">
+                        <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password">
+
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <button class="btn btn-success">Login</button>
                 </form>

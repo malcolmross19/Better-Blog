@@ -19,13 +19,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .display-1, .display-2, .d
     color: #33ccff !important;
 }
 
+.bg-primary {
+    background-color: #33ccff !important;
+}
+
+/*cards*/
+.card {
+    box-shadow: -2px 2px 5px 0 rgb(75, 75, 75) ;
+}
 
 /****** NAVIGATIONAL STYLING ******/
 nav, .footer {
     background-color: rgb(100,100,100);
 }
 
-.nav-active, .nav-link:hover {
+.nav-active, .nav-link:hover, .nav-link.active {
     color: #33ccff !important;
 }
 
@@ -101,6 +109,12 @@ html::before {
 
 .logo-header {
     color: #33ccff;
+    font-weight: bold;
+    text-shadow: -2px 2px 1px rgb(50,50,50), 0 0 3px #000;
+}
+
+.card-component-header {
+    color: #ffffff;
     font-weight: bold;
     text-shadow: -2px 2px 1px rgb(50,50,50), 0 0 3px #000;
 }

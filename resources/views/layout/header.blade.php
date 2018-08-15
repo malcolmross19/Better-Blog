@@ -15,13 +15,16 @@
                 {{--Navigational Links--}}
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-active">Active Link</a>
+                        <a href="{{ route('splash') }}" class="nav-link {{ Route::is('splash')? 'active': '' }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Link</a>
+                        <a class="nav-link">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Link</a>
+                        <a class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Contact</a>
                     </li>
                 </ul>
 
@@ -31,10 +34,10 @@
 
                     @if (Auth::guest())
                         <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link {{ Route::is('login')? 'active': '' }}" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            <a class="nav-link {{ Route::is('register')? 'active': '' }}" href="{{ route('register') }}">Register</a>
                         </li>
 
                     @else
