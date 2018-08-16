@@ -11,6 +11,7 @@
                     @endslot
                     @slot('cardBody')
                         <form method="post" action="">
+                            @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label class="col-form-label-sm mb-0" for="contactEmail">Email: </label>

@@ -51,6 +51,9 @@
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="#">Profile</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('create-blog') }}">Write Blog</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
