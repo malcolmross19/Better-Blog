@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
 
 class BlogsController extends Controller
 {
@@ -13,7 +14,8 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return view('pages.blogs', compact('blogs'));
     }
 
     /**
@@ -31,10 +33,19 @@ class BlogsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     *
+     *
      */
     public function store(Request $request)
     {
         //
+        $blog = new Blog();
+
+        $blog->title = $request->get('blogTitle');
+        $blog->body = $request->get('blogBody');
+        $blog->save();
+
+        return redirect('/blogs');
     }
 
     /**
