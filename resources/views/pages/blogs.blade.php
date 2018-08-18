@@ -19,7 +19,7 @@
                 <article class="bg-dark p-3 rounded mb-4">
                     <div class="row font-weight-bold">
                         <p class="col-3">{{ $blog->author }}</p>
-                        <p class="col-3">{{ $blog->date }}</p>
+                        <p class="col-3">{{ $blog->created_at }}</p>
                         <p class="col-3"><i class="far fa-thumbs-up"></i> {{ $blog->likes }}</p>
                         <p class="col-3"><i class="far fa-comment"></i> {{ $blog->comments }}</p>
                     </div>
