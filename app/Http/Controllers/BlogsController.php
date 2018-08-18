@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class BlogsController extends Controller
 {
@@ -26,6 +28,7 @@ class BlogsController extends Controller
     public function create()
     {
         //
+        return view('pages.create-blog');
     }
 
     /**
@@ -40,7 +43,7 @@ class BlogsController extends Controller
     {
         //
         $blog = new Blog();
-
+        $blog->author = Auth::user()->name;
         $blog->title = $request->get('blogTitle');
         $blog->body = $request->get('blogBody');
         $blog->save();
@@ -56,7 +59,9 @@ class BlogsController extends Controller
      */
     public function show($id)
     {
-        //
+        // Display blog post using unique id
+        $blog = Blog::find($id);
+        return view('pages.show-blog', compact('blog'));
     }
 
     /**
@@ -68,6 +73,8 @@ class BlogsController extends Controller
     public function edit($id)
     {
         //
+        $blog = Blog::find($id);
+        return view('pages.edit-blog', compact('blog'));
     }
 
     /**
@@ -79,7 +86,12 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $blog = Blog::find($id);
+        $blog->title = $request->get('blogTitle');
+        $blog->body = $request->get('blogBody');
+        $blog->save();
+        return redirect('/blogs');
     }
 
     /**
@@ -91,5 +103,9 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         //
+        //dd($id);
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('/blogs');
     }
 }
