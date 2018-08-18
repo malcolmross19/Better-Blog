@@ -30,14 +30,6 @@ Auth::routes();
 
 
 
-
-
-
-
-
-
-
-
 /****** UNCOMMENT ONCE CONTROLLER IS COMPLETED ******/
 ///* Routes for blogs CRUD */
 Route::prefix('blogs')->group(function () {
@@ -47,5 +39,5 @@ Route::prefix('blogs')->group(function () {
   Route::get('/{id}', 'BlogsController@show')->name('show-blog');
   Route::get('/{id}/edit', 'BlogsController@edit')->name('edit-blog');
   Route::patch('/{id}', 'BlogsController@update')->name('update-blog');
-  Route::delete('/{id}', 'BlogsController@delete')->name('delete-blog');
+  Route::get('/delete/{id}', 'BlogsController@destroy')->name('delete-blog');
 });
