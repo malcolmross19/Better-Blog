@@ -40,4 +40,5 @@ Route::prefix('blogs')->group(function () {
   Route::get('/{id}/edit', 'BlogsController@edit')->name('edit-blog');
   Route::patch('/{id}', 'BlogsController@update')->name('update-blog');
   Route::get('/delete/{id}', 'BlogsController@destroy')->name('delete-blog');
+  Route::get('/like/{id}', 'BlogsController@saveLike')->name('like-blog');
 });
