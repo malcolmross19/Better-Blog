@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\User;
+use App\Like;
 use Illuminate\Support\Facades\Auth;
 
 class BlogsController extends Controller
@@ -102,10 +103,36 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        //
-        //dd($id);
+        // Delete blog from database
         $blog = Blog::find($id);
         $blog->delete();
         return redirect('/blogs');
+    }
+
+    /**
+     * Saves a like to the database
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function saveLike(Request $request)
+    {
+        //
+        $likecheck = Like::where(['user_id'=>Auth::id(),'blogs_id'=>$request->id])->first();
+        $blog = Blog::where(['id'=>$request->id])->first();
+        if ($likecheck) {
+          Like::where(['user_id'=>Auth::id(),'blogs_id'=>$request->id])->delete();
+          $blog->likes = $blog->likes - 1;
+          $blog->save();
+          return back(); return redirect()->back();
+        } else {
+          $like = new Like;
+          $like->user_id = Auth::id();
+          $like->blogs_id = $blog->id;
+          $like->save();
+          $blog->likes = $blog->likes + 1;
+          $blog->save();
+          return back(); return redirect()->back();
+        }
     }
 }
