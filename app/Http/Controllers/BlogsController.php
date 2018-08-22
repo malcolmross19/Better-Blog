@@ -124,7 +124,7 @@ class BlogsController extends Controller
           Like::where(['user_id'=>Auth::id(),'blogs_id'=>$request->id])->delete();
           $blog->likes = $blog->likes - 1;
           $blog->save();
-          return back(); return redirect()->back();
+          return back();
         } else {
           $like = new Like;
           $like->user_id = Auth::id();
@@ -132,7 +132,7 @@ class BlogsController extends Controller
           $like->save();
           $blog->likes = $blog->likes + 1;
           $blog->save();
-          return back(); return redirect()->back();
+          return back();
         }
     }
 }

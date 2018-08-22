@@ -33,8 +33,30 @@
                     {{--Check if user is logged in--}}
 
                     @if (Auth::guest())
-                        <li class="nav-item ml-0 ml-md-auto">
-                            <a class="nav-link {{ Route::is('login')? 'active': '' }}" href="{{ route('login') }}">Login</a>
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#">
+                                Login <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu border-0 dropdown-menu-right" role="menu">
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="dropdown-item nav-link font-weight-bold pl-2">
+                                        <i class="fas fa-at text-primary social-media-icon"></i> Login with Email
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="redirect/facebook" class="dropdown-item nav-link font-weight-bold pl-2">
+                                        <i class="fab fa-facebook-f social-media-icon" style="color: #3b5998;"></i> Login with Facebook
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="redirect/google" class="dropdown-item nav-link font-weight-bold pl-2">
+                                        <i class="fab fa-google-plus-g social-media-icon" style="color: #dd4b39;"></i> Login with Google+
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item ml-0 ml-md-auto">
                             <a class="nav-link {{ Route::is('register')? 'active': '' }}" href="{{ route('register') }}">Register</a>

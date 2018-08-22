@@ -18,8 +18,8 @@ class CreateBlogsTable extends Migration
             $table->string('author');
             $table->string('title');
             $table->string('body');
-            $table->string('likes');
-            $table->string('comments');
+            $table->string('likes')->default(0);
+            $table->string('comments')->default(0);
             $table->timestamps();
         });
     }

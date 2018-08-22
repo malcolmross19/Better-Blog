@@ -9,7 +9,11 @@
             <div class="row font-weight-bold">
               <p class="col-3">{{ $blog->author }}</p>
               <p class="col-3">{{ $blog->created_at }}</p>
-              <p class="col-3"><a href="{{ action('BlogsController@saveLike', $blog->id) }}"><i class="far fa-thumbs-up"></i> {{ $blog->likes }}</p></a>
+              <p class="col-3">
+                  <a href="{{ action('BlogsController@saveLike', $blog->id) }}">
+                      <i class="far fa-thumbs-up"></i> {{ $blog->likes }}
+                  </a>
+              </p>
               <p class="col-3"><i class="far fa-comment"></i> {{ $blog->comments }}</p>
             </div>
             <div class="row">

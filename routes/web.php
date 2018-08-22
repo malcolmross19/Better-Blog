@@ -29,9 +29,7 @@ Route::get('about', function () {
 Auth::routes();
 
 
-
-/****** UNCOMMENT ONCE CONTROLLER IS COMPLETED ******/
-///* Routes for blogs CRUD */
+/* Routes for blogs CRUD */
 Route::prefix('blogs')->group(function () {
   Route::get('/', 'BlogsController@index')->name('blogs');
   Route::get('/create', 'BlogsController@create')->name('create-blog');
@@ -42,3 +40,7 @@ Route::prefix('blogs')->group(function () {
   Route::get('/delete/{id}', 'BlogsController@destroy')->name('delete-blog');
   Route::get('/like/{id}', 'BlogsController@saveLike')->name('like-blog');
 });
+
+/* Social Media Login Routes */
+Route::get('/redirect/{service}', 'SocialAuthController@redirect');
+Route::get('/callback/{service}', 'SocialAuthController@callback');
