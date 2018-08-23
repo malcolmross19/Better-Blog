@@ -7,7 +7,7 @@
         <section>
           <article class="bg-dark p-3 rounded mb-4">
             <div class="row font-weight-bold">
-              <p class="col-3">{{ $blog->author }}</p>
+              <p class="col-3">{{ $blog->author_name }}</p>
               <p class="col-3">{{ $blog->created_at }}</p>
               <p class="col-3">
                   <a href="{{ action('BlogsController@saveLike', $blog->id) }}">

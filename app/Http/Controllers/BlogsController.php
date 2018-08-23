@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Blog;
-use App\User;
 use App\Like;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,11 +44,12 @@ class BlogsController extends Controller
     {
         //
         $blog = new Blog();
-        $blog->author = Auth::user()->name;
+        $blog->id = Auth::user()->id;
+        $blog->author_name = Auth::user()->name;
         $blog->title = $request->get('blogTitle');
         $blog->body = $request->get('blogBody');
         $blog->save();
-
+        Session::flash('blog-added', 'Blog created successfully!');
         return redirect('/blogs');
     }
 
@@ -92,6 +93,7 @@ class BlogsController extends Controller
         $blog->title = $request->get('blogTitle');
         $blog->body = $request->get('blogBody');
         $blog->save();
+        Session::flash('blog-updated', 'The blog titled "'.$request->get('blogTitle').'" was successfully updated!');
         return redirect('/blogs');
     }
 
@@ -103,9 +105,10 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        // Delete blog from database
         $blog = Blog::find($id);
+        $title = $blog->title;
         $blog->delete();
+        Session::flash('blog-deleted', 'The blog titled "'.$title.'" was successfully removed!');
         return redirect('/blogs');
     }
 
@@ -117,7 +120,6 @@ class BlogsController extends Controller
      */
     public function saveLike(Request $request)
     {
-        //
         $likecheck = Like::where(['user_id'=>Auth::id(),'blogs_id'=>$request->id])->first();
         $blog = Blog::where(['id'=>$request->id])->first();
         if ($likecheck) {

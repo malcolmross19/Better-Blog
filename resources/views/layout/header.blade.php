@@ -70,7 +70,7 @@
 
                             <ul class="dropdown-menu border-0 dropdown-menu-right" role="menu">
                                 <li class="nav-item">
-                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="#">Profile</a>
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('show-profile', Auth::user()->id) }}">Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('create-blog') }}">Write Blog</a>

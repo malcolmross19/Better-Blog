@@ -44,3 +44,9 @@ Route::prefix('blogs')->group(function () {
 /* Social Media Login Routes */
 Route::get('/redirect/{service}', 'SocialAuthController@redirect');
 Route::get('/callback/{service}', 'SocialAuthController@callback');
+
+/* Profile Routes */
+Route::get('/profile/{id}', 'ProfileController@showProfile')->name('show-profile');
+Route::get('/profile/{id}/edit', 'ProfileController@editInfo')->name('edit-info');
+Route::patch('/profile/{id}', 'ProfileController@updateInfo')->name('update-info');
+Route::get('/profile/{id}/blogs', 'ProfileController@showBlogs')->name('user-blogs');
