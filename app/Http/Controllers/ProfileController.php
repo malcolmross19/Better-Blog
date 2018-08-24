@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Blog;
+use App\Like;
 
 class ProfileController extends Controller
 {
@@ -18,7 +19,13 @@ class ProfileController extends Controller
     public function showProfile($id) {
         $user = User::find($id);
 
-        return view('pages.profile', compact('user'));
+        $blogCount = Blog::where('author_id', '=', $id)->count();
+
+        $likes = Like::where('user_id', '=', $id)->count();
+
+        //dd($likes);
+
+        return view('pages.profile', compact('user', 'blogCount', 'likes'));
     }
 
     public function showBlogs($id) {

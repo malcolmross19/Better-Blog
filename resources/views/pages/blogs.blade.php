@@ -45,7 +45,7 @@
                 <article class="bg-dark p-3 rounded mb-4">
                     <div class="row font-weight-bold">
                         <p class="col-3">{{ $blog->author_name }}</p>
-                        <p class="col-3">{{ $blog->created_at }}</p>
+                        <p class="col-3">{{ $blog->created_at->format('M d, Y') }}</p>
                         <p class="col-3">
                             <a href="{{ action('BlogsController@saveLike', $blog->id) }}">
                                 <i class="far fa-thumbs-up"></i> {{ $blog->likes }}
@@ -54,8 +54,9 @@
                         <p class="col-3"><i class="far fa-comment"></i> {{ $blog->comments }}</p>
                     </div>
                     <div class="row">
-                        <img class="h-25 w-25 rounded col-3" src="{{ $blog->image }}" alt="{{ $blog->title }} Image">
                         <p class="col-9">{{ $blog->body }}</p>
+                    </div>
+                    <div class="row">
                         <a href="{{ route('show-blog', $blog->id) }}" class="mx-auto text-info font-weight-bold">Read More</a>
                     </div>
                 </article>

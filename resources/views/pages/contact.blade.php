@@ -38,7 +38,7 @@
                                 <textarea class="form-control" name="contactSubject" id="contactSubject" rows="5" placeholder="Reason for contacting us..." required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Send Email</button>
+                            <button type="button" class="btn btn-success">Send Email</button>
                         </form>
                     @endslot
                 @endcomponent

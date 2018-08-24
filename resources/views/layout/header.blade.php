@@ -21,9 +21,6 @@
                         <a href="{{ route('blogs') }}" class="nav-link {{ Route::is('blogs')? 'active': '' }}">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('about') }}" class="nav-link {{ Route::is('about')? 'active': '' }}">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('contact') }}" class="nav-link {{ Route::is('contact')? 'active': '' }}">Contact</a>
                     </li>
                 </ul>
@@ -70,11 +67,21 @@
 
                             <ul class="dropdown-menu border-0 dropdown-menu-right" role="menu">
                                 <li class="nav-item">
-                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('show-profile', Auth::user()->id) }}">Profile</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('create-blog') }}">Write Blog</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('show-profile', Auth::user()->id) }}">Profile</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('user-blogs', Auth::user()->id) }}">My Blogs</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('edit-info', Auth::user()->id) }}">Update Account</a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="dropdown-item nav-link font-weight-bold pl-2" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

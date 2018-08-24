@@ -44,7 +44,7 @@ class BlogsController extends Controller
     {
         //
         $blog = new Blog();
-        $blog->id = Auth::user()->id;
+        $blog->author_id = Auth::user()->id;
         $blog->author_name = Auth::user()->name;
         $blog->title = $request->get('blogTitle');
         $blog->body = $request->get('blogBody');

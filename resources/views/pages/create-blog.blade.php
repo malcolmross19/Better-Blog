@@ -19,10 +19,6 @@
                                 <label class="col-form-label-sm" for="blogBody">Body: </label>
                                 <textarea class="form-control" id="blogBody" name="blogBody" rows="5" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label-sm" for="blogImage">Image: <small class="text-muted">(optional)</small></label>
-                                <input type="file" class="form-control-file" />
-                            </div>
                             <div class="form-row col-12 mt-5 justify-content-md-end">
                                 <button class="btn btn-success col-12 col-md-auto px-md-4" type="submit">Create</button>
                             </div>
